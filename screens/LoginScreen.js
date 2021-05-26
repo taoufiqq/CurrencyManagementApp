@@ -26,7 +26,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
 
    onSignIn = googleUser => {
-    console.log('Google Auth Response', googleUser);
+    console.log('=========Google Auth Response==========', googleUser);
     // We need to register an Observer on Firebase Auth to make sure auth is initialized.
     var unsubscribe = firebase
       .auth()
@@ -43,7 +43,9 @@ import Icon from 'react-native-vector-icons/FontAwesome';
         firebase
         .auth()
         .signInWithCredential(credential).then(function(){
-         console.log('user signed in ');
+
+          console.log('=======user signed in=======');
+          
 
 
         })
@@ -58,7 +60,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
           // ...
         });
       } else {
-        console.log('User already signed-in Firebase.');
+
+        console.log('========User already signed-in Firebase=========');
+       
+
       }
     }.bind(this));
   }
@@ -76,8 +81,10 @@ import Icon from 'react-native-vector-icons/FontAwesome';
   
       if (result.type === 'success') {
         this.onSignIn(result);
+        this.props.navigation.navigate('DashboardScreen');
         return result.accessToken;
       } else {
+        this.props.navigation.navigate('LoginScreen');
         return { cancelled: true };
       }
     } catch (e) {
@@ -90,41 +97,29 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 
         return (
             <View style={styles.container}>
+             <Text style={styles.title}>Welcome to our App</Text>
 
                 <Image
                      style={styles.logo}
-                      source={require('../assets/logo.png')}
+                      source={require('../assets/Bitcoin.png')}
                 />
 
 
           <Button
+           style={styles.buttonGoogle}
            icon={
             <Icon
               name="google"
               size={22}
-              color="orange"
+              color="white"
             />
           }
        
               onPress={() => this.signInWithGoogleAsync()}
               title=" sign In with Google"
-              color="orange"
+              color="black"
 /> 
         
-         {/* <Button
-            style={styles.buttonFacebook}
-           icon={
-            <Icon
-              name="facebook"
-              size={22}
-              color="blue"
-            />
-          }
-       
-              onPress={() => this.signInWithGoogleAsync()}
-              title=" sign In with Facebook"
-              color="orange"
-/>  */}
 
 
 
@@ -136,28 +131,23 @@ const styles = StyleSheet.create({
 
     container: {
       flex: 1,
-      backgroundColor: 'lightblue',
       alignItems: 'center',
       justifyContent: 'center',
 },
-buttonGoogle: {
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    borderRadius: 5,
-    width:'70%', 
-    color: '#ffffff',
-    backgroundColor: 'transparent',
-    marginBottom:1   
-  },
-
-  buttonFacebook: {
-    backgroundColor: 'orange',
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    borderRadius: 5,
-    width:'50%',    
-  },
-
+title:{
+     fontSize:25,
+     color:'orange',
+     fontWeight:'bold'
+},
+// buttonGoogle: {
+//     paddingHorizontal: 20,
+//     paddingVertical: 30,
+//     borderRadius: 15,
+//     width:'70%', 
+//     color: '#ffffff',
+//     backgroundColor: 'transparent',
+//     marginBottom:11   
+//   },
   logo: {
     width: 340,
     height: 340,

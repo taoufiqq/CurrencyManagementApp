@@ -10,13 +10,13 @@ import firebase from 'firebase';
     }
     checkIfLoggedIn = () =>{
       firebase.auth().onAuthStateChanged(function(user){
-
-      if(user){
-          this.props.navigation.navigate('DashboardScreen')
-      }
-      else{
-          this.props.navigation.navigate('LoginScreen')
-      }
+       
+    //   if(user){
+    //       this.props.navigation.navigate('DashboardScreen')
+    //   }
+    //   else{
+    //       this.props.navigation.navigate('LoginScreen')
+    //   }
 
 
       }.bind(this)
