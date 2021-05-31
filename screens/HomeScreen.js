@@ -11,21 +11,21 @@ const HomeScreen = ({ navigation }) => {
       symbol: "EURUSD",
       price: 10,
       img: "https://www.expertinvestor.net/images/logos/forexcom-logo-sq.png",
-      redirectTo: "https://www.tradingview.com/chart/QsnH9yuy"
+      redirectTo: "https://www.tradingview.com/symbols/SPX/"
     },
     {
       id: 2,
       symbol: "GBPUSD",
       price: 30,
       img: "https://img2.freepng.fr/20180308/vyw/kisspng-euro-bank-currency-symbol-logo-finance-3d-metal-currency-symbol-5aa179207ed514.8750548715205317445195.jpg",
-      redirectTo: "https://www.tradingview.com/chart/QsnH9yuy"
+      redirectTo: "https://www.tradingview.com/symbols/TVC-IXIC/"
     },
     {
       id: 3,
       symbol: "AUDJPY",
       price: 40,
       img: "https://www.expertinvestor.net/images/logos/forexcom-logo-sq.png",
-      redirectTo: "https://www.tradingview.com/chart/QsnH9yuy"
+      redirectTo: "https://www.tradingview.com/symbols/DJ-DJI/"
     }
   ]
 
@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
 
      <Image
         style={styles.logo}
-        source={require('../assets/fluctuation.png')}
+        source={require('../assets/currency.png')}
       />
       <SafeAreaView style={styles.areaView}>
         <ScrollView style={styles.scrollView}>
@@ -53,9 +53,19 @@ const HomeScreen = ({ navigation }) => {
 
                       <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>
                   
-                      <Text>View More ...</Text>
+                      <Text>View Chart</Text>
+                
                     </TouchableOpacity>
+                    <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>  
 
+                  <Text>Buy/Sell</Text>
+                  
+                </TouchableOpacity>
+                      <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>
+                  
+                 
+                      <Text>View Currency</Text> 
+                    </TouchableOpacity>
                     </View>
                     {/* <Text style={styles.cryptoListsTxt}>{data.price} $</Text> */}
                   </View>
@@ -73,10 +83,10 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   logo: {
-    marginLeft:110,
-    width:220,
-    height:150,
-    marginTop: 40,
+    marginLeft:100,
+    width:160,
+    height:100,
+    marginTop: 20,
   },
 
   cryptoLists: {
