@@ -78,7 +78,7 @@ export default function DashboardScreen({ navigation }) {
         style={{flex:1}}
         data={data}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={()=> navigation.push('LoadingScreen', item)} >
+          <TouchableOpacity onPress={()=> navigation.navigate('DetailsCurrencyScreen')} >
           <Item item={item}/> 
           </TouchableOpacity>
         )}
