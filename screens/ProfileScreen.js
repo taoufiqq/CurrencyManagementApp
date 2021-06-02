@@ -41,9 +41,9 @@ const sell = () => {
             <Text style={styles.userInfoTxt}> {googleUser.name} </Text>
         </View>
         <Image
-                     style={styles.logo}
-                      source={require('../assets/Wallet.png')}
-                />
+            style={styles.logo}
+            source={require('../assets/Cash.png')}
+        />
         <View style={styles.btnGroup}>
             <TouchableOpacity onPress={Mywallet}  style={styles.BTN}>
                 <Text style={{fontWeight: "bold"}} >MY WALLET</Text>
@@ -70,8 +70,10 @@ const styles = StyleSheet.create({
 },
 title:{
    fontSize:25,
-   color:'#f4511e',
-   fontWeight:'bold'
+   color:'black',
+   fontWeight:'bold',
+   marginTop:10,
+   paddingBottom:20
 },
 userInfo: {
   display:'flex',
@@ -81,7 +83,7 @@ userInfo: {
 },
 userInfoTxt: {
   fontWeight: "bold",
-  color: '#f4511e',
+  color: 'black',
   marginTop:5
 
 },

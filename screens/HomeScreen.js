@@ -92,8 +92,9 @@ const styles = StyleSheet.create({
   cryptoListsData: {
     padding: 10,
     margin: 10,
-    backgroundColor: "#e6e6e6",
-    borderRadius: 20
+    backgroundColor: "#A6ACAF",
+    borderRadius: 10,
+    
   },
   scrollView: {
     marginHorizontal: 20,
@@ -109,7 +110,7 @@ const styles = StyleSheet.create({
   cryptoListsTopData: {
     display: "flex",
     // flexDirection: "column",
-    // justifyContent: "space-around",
+    justifyContent: "space-around",
     alignItems: "center"
   },
   cryptoListsTopData2:{
@@ -119,10 +120,11 @@ const styles = StyleSheet.create({
 
   },
   button: {
-    borderRadius: 20,
+    borderRadius: 10,
     padding: 10,
     elevation: 2,
-    backgroundColor: "#FFF0EB",
+    backgroundColor: "#D5D8DC",
+    justifyContent: "space-around",
     
   },
   userInfo: {
@@ -133,8 +135,8 @@ const styles = StyleSheet.create({
   },
   userInfoTxt: {
     fontWeight: "bold",
-    color: '#f4511e',
-    marginTop:5
+    color: 'black',
+
 
 },
 });

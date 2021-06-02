@@ -1,7 +1,5 @@
-  
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Image, Linking, Pressable } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import axios from "axios"
 
@@ -31,6 +29,10 @@ const Walett = ({ navigation, route }) => {
         </View>
 
         <Text style={styles.walletNum}>you have:  {Wallet} $ in wallet</Text>
+        <Image
+                     style={styles.logo}
+                      source={require('../assets/Wallet.png')}
+                />
         <Text style={styles.walletNum}>you have:  {Sold} $ in your account</Text>
     </View>
   );
@@ -44,18 +46,25 @@ const styles = StyleSheet.create({
         display:'flex',
         flexDirection: "row",
         justifyContent: "space-around",
-        alignItems: "baseline"
+        alignItems: "baseline",
+        paddingTop:20
       },
       userInfoTxt: {
         fontWeight: "bold",
-        color: '#f4511e',
+        color: 'black',
        
     
     },
     walletNum: {
         fontSize: 20,
         fontWeight: "bold",
-        marginTop: 100,
+        marginTop: 80,
         textAlign: "center"
-    }
+    },
+    logo: {
+        width: 340,
+        height: 340,
+        resizeMode: 'stretch',
+        marginLeft:60
+      }
 });
