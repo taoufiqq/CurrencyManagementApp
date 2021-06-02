@@ -6,12 +6,12 @@ import { NavigationContainer } from "@react-navigation/native";
 import 'react-native-gesture-handler';
 
 
-import DetailsCurrencyScreen from './screens/DetailsCurrencyScreen';
+import ProfileScreen from './screens/ProfileScreen';
 import LoginScreen from './screens/LoginScreen';
 import DashboardCurrencyScreen from './screens/DashboardCurrencyScreen';
 import HomeScreen from './screens/HomeScreen';
 import Chart from './screens/Chart';
-import Wallet from './screens/WalettScreen'
+import Walett from './screens/Walett'
 
 import * as firebase from 'firebase';
 import { firebaseConfig } from './firebaseConfig';
@@ -77,7 +77,7 @@ render(){
       }} />
 
 
-      <Stack.Screen name="DetailsCurrencyScreen" component={DetailsCurrencyScreen} 
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} 
        options={{
         headerTitleAlign: 'center',
         headerStyle: {
@@ -89,7 +89,7 @@ render(){
         },
       }}/>
       
-      <Stack.Screen name="Wallet" component={WalletScreen} 
+      <Stack.Screen name="Walett" component={Walett} 
        options={{
         headerTitleAlign: 'center',
         headerStyle: {

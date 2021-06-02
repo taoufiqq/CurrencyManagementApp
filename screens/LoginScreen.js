@@ -4,6 +4,8 @@ import { Button } from 'react-native-elements';
 import firebase from 'firebase';
 import * as Google from 'expo-google-app-auth';
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+import axios from 'axios'
 // import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = ({ navigation }) => {
@@ -13,7 +15,7 @@ const LoginScreen = ({ navigation }) => {
       var providerData = firebaseUser.providerData;
       for (var i = 0; i < providerData.length; i++) {
         if (providerData[i].providerId === firebase.auth.GoogleAuthProvider.PROVIDER_ID &&
-            providerData[i].uid === googleUser.getBasicProfile().getId()) {
+            providerData[i].uid === googleUser.user.id) {
           // We don't need to reauth the Firebase connection.
           // getBasicProfile().getId()
           return true;
@@ -25,7 +27,7 @@ const LoginScreen = ({ navigation }) => {
 
 
    onSignIn = googleUser => {
-    console.log('=========Google Auth Response==========', googleUser);
+    // console.log('=========Google Auth Response==========', googleUser);
     // We need to register an Observer on Firebase Auth to make sure auth is initialized.
     var unsubscribe = firebase
       .auth()
@@ -68,7 +70,7 @@ const LoginScreen = ({ navigation }) => {
   }
 
 
- signInWithGoogleAsync = async()=> {
+ const signInWithGoogleAsync = async()=> {
 
     try {
       const result = await Google.logInAsync({
@@ -81,7 +83,14 @@ const LoginScreen = ({ navigation }) => {
       if (result.type === 'success') {
         this.onSignIn(result);
 
-        navigation.navigate('HomeScreen');
+        const googleUser = {name: result.user.name, email: result.user.email, photo_url: result.user.photoUrl}
+        axios.post("https://currencyyapp.herokuapp.com/api/user/signUp", googleUser).then(() => {
+          console.log("data inserted")
+        })
+        .catch((e) => {
+          console.log("data not inserted")
+        })
+        navigation.navigate('HomeScreen',{ googleUser });
         return result.accessToken;
       } else {
         navigation.navigate('LoginScreen');
@@ -115,7 +124,7 @@ const LoginScreen = ({ navigation }) => {
             />
           }
        
-              onPress={() => this.signInWithGoogleAsync()}
+              onPress={signInWithGoogleAsync}
               title=" sign In with Google"
               color="black"
 /> 
