@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
 },
 title:{
      fontSize:25,
-     color:'orange',
+     color:'#f4511e',
      fontWeight:'bold'
 },
 // buttonGoogle: {

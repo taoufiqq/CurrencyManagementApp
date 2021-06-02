@@ -29,7 +29,7 @@ function Item({ item }) {
   );
 }
 
-export default function DashboardScreen({ navigation }) {
+const DashboardCurrencyScreen = () =>{
 
  
 
@@ -78,9 +78,9 @@ export default function DashboardScreen({ navigation }) {
         style={{flex:1}}
         data={data}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={()=> navigation.navigate('DetailsCurrencyScreen')} >
+          // <TouchableOpacity onPress={()=> navigation.navigate('DetailsCurrencyScreen')} >
           <Item item={item}/> 
-          </TouchableOpacity>
+          // </TouchableOpacity>
         )}
         keyExtractor={item => item.id}
       />
@@ -94,7 +94,7 @@ export default function DashboardScreen({ navigation }) {
 
     
   }
-  
+  export default DashboardCurrencyScreen;
 
   
   

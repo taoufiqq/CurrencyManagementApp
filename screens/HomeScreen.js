@@ -10,7 +10,7 @@ const HomeScreen = ({ navigation }) => {
       id: 1,
       symbol: "EURUSD",
       price: 10,
-      img: "https://www.expertinvestor.net/images/logos/forexcom-logo-sq.png",
+      img: "https://i.pinimg.com/736x/37/e2/a7/37e2a7926b0aa719d9fe6f683869d582.jpg",
       redirectTo: "https://www.tradingview.com/symbols/SPX/"
     },
     {
@@ -24,7 +24,7 @@ const HomeScreen = ({ navigation }) => {
       id: 3,
       symbol: "AUDJPY",
       price: 40,
-      img: "https://www.expertinvestor.net/images/logos/forexcom-logo-sq.png",
+      img: "http://3.bp.blogspot.com/-KJWiQjXg9jA/UIbexMLt4OI/AAAAAAAAAew/26i5lWG6CW8/s1600/dollar_logo_11_s.jpg",
       redirectTo: "https://www.tradingview.com/symbols/DJ-DJI/"
     }
   ]
@@ -50,24 +50,20 @@ const HomeScreen = ({ navigation }) => {
                       <Text>{data.symbol}</Text>
               
                         <Text>{data.price} $</Text>
+                      <View style={styles.cryptoListsTopData2}>
+                           <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>
+                                <Text>View Chart</Text>
+                           </TouchableOpacity>
+                           <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("DetailsCurrencyScreen", { data: data.redirectTo, cryptoPrice: data.price });}}>  
+                                <Text>Buy/Sell</Text>
+                           </TouchableOpacity>
+                      </View>
 
-                      <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>
-                  
-                      <Text>View Chart</Text>
-                
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>  
-
-                  <Text>Buy/Sell</Text>
-                  
-                </TouchableOpacity>
-                      <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("Chart", { data: data.redirectTo, cryptoPrice: data.price });}}>
-                  
-                 
-                      <Text>View Currency</Text> 
-                    </TouchableOpacity>
+                          <TouchableOpacity style={[styles.button, styles.buttonOpen]} onPress={() =>{ navigation.navigate("DashboardCurrencyScreen");}}>
+                                <Text>View Currency</Text> 
+                          </TouchableOpacity>
                     </View>
-                    {/* <Text style={styles.cryptoListsTxt}>{data.price} $</Text> */}
+             
                   </View>
                 )
               })
@@ -83,26 +79,23 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   logo: {
-    marginLeft:100,
+    marginLeft:130,
     width:160,
     height:100,
-    marginTop: 20,
+    marginTop: 10,
   },
 
-  cryptoLists: {
-    marginTop: 10
-  },
   cryptoListsData: {
     padding: 10,
     margin: 10,
-    backgroundColor: "#EBEBEB",
+    backgroundColor: "#e6e6e6",
     borderRadius: 20
   },
   scrollView: {
     marginHorizontal: 20,
   },
   areaView: {
-    marginTop: 40,
+    marginTop: 20,
     marginBottom: 60
   },
   cryptoListsTxt: {
@@ -111,14 +104,21 @@ const styles = StyleSheet.create({
   },
   cryptoListsTopData: {
     display: "flex",
-    flexDirection: "column",
+    // flexDirection: "column",
     justifyContent: "space-around",
     alignItems: "center"
+  },
+  cryptoListsTopData2:{
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+
   },
   button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2,
-    backgroundColor: "gold",
+    backgroundColor: "#d9d9d9",
+    
   }
 });
