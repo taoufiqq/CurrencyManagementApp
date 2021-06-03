@@ -3,6 +3,7 @@ import { StyleSheet, Text, View,Image } from 'react-native';
 import { Button } from 'react-native-elements';
 import firebase from 'firebase';
 import * as Google from 'expo-google-app-auth';
+// import * as GoogleSignIn from 'expo-google-sign-in';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import axios from 'axios'
